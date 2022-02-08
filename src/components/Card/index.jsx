@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Card = ({ title, description, completed, onDelete }) => {
   return (
     <div>
@@ -16,3 +18,17 @@ const Card = ({ title, description, completed, onDelete }) => {
 };
 
 export default Card;
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  completed: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
+
+Card.defaultProps = {
+  title: "",
+  description: "",
+  completed: false,
+  onDelete: null,
+};
