@@ -4,9 +4,9 @@ import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className='list-container'>
     {
-      list.map(item => <Card key={item.id} {...item} />)
+      list.map(item => <Card key={item.id} className="list_card" {...item} />)
     }
     </div>
   );

@@ -1,16 +1,26 @@
 import PropTypes from "prop-types";
+import "./Card.scss";
 
-const Card = ({ title, description, completed, onDelete }) => {
+const Card = ({
+  title,
+  description,
+  className,
+  completed,
+  onDelete,
+  onComplete,
+}) => {
   return (
-    <div>
+    <div className={`card_container ${className}`}>
       <header className="card_header">
         <h3>{title}</h3>
       </header>
       <div className="card_main">
-        <div>{description}</div>
+        <div className="card_description">{description}</div>
         <div className="card_footer">
-          <button>delete</button>
-          <button>{completed ? "un-complete" : "complete"}</button>
+          <button onClick={onDelete}>delete</button>
+          <button onClick={onComplete}>
+            {completed ? "un-complete" : "complete"}
+          </button>
         </div>
       </div>
     </div>
@@ -23,7 +33,8 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   completed: PropTypes.bool.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onDelete: PropTypes.func,
+  onComplete: PropTypes.func,
 };
 
 Card.defaultProps = {
@@ -31,4 +42,5 @@ Card.defaultProps = {
   description: "",
   completed: false,
   onDelete: null,
+  onComplete: null,
 };
