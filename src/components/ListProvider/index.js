@@ -31,8 +31,16 @@ export const useListActions = () => {
             }))
         },
 
-        removFromList: id => {
+        removeFromList: id => {
             setList(prevList => prevList.filter(item => item.id !== id))
+        },
+
+        toggleItem: id  => {
+            setList(prevList => prevList.map(item => item.id === id ? {...item, completed: !item.completed} : item))
+        },
+
+        updateItem: updated => {
+            setList(prevList => prevList.map(item => item.id === updated.id ? {...item, ...updated} : item))
         }
     }
 };
