@@ -1,4 +1,6 @@
 import Card from "../Card";
+import propTypes from "prop-types";
+import "./CardList.scss";
 
 const CardList = ({ list, className }) => {
   return (
@@ -11,3 +13,13 @@ const CardList = ({ list, className }) => {
 };
 
 export default CardList;
+
+CardList.propTypes = {
+  list: propTypes.shape([]),
+  className: propTypes.string,
+};
+
+CardList.defaultProps = {
+  list: [],
+  className: "",
+};

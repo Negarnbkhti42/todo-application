@@ -1,0 +1,11 @@
+.emptyList_logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+  & img {
+    width: 60vmin;
+    height: auto;
+  }
+}
