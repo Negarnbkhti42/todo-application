@@ -2,13 +2,9 @@
     &-container {
         display: grid;
         grid-template-columns: 100%;
-        gap: 8px;
+        gap: 30px;
 
         padding: 5px 15px;
-    }
-
-    &_card {
-        height: 150px;
     }
 }
 

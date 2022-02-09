@@ -1,8 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
+
 .card {
     &_container {
-        border: 2px solid rgb(199, 199, 199);
+        // border: 2px solid rgb(199, 199, 199);
         border-radius: 5px;
+        box-shadow: 0 0 10px rgba(73, 73, 73, 0.555);
         padding: 5px 10px;
+        height: 150px;
 
         display: flex;
         flex-direction: column;
@@ -15,6 +19,8 @@
         text-align: left;
         & h3 {
             margin: 0;
+            font-family: "Overpass", sans-serif;
+            font-size: 1.5rem;
         }
     }
 
@@ -23,23 +29,43 @@
 
         display: flex;
         flex-direction: column;
+        gap: 5px;
         min-height: 0;
     }
 
     &_description {
-        flex: 1;
+        flex: 2;
         min-height: 0;
-        text-overflow: ellipsis;
+        font-family: "Overpass", sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &_footer {
-        flex: 0;
+        flex: 1;
 
         display: flex;
         justify-content: flex-end;
         & > *:not(:last-child) {
-            margin-right: 8px;
+            margin-right: 15px;
+        }
+
+        & button {
+            width: 15%;
+            border: none;
+            border-radius: 5px;
+            background: rgba(252, 204, 172, 0.39);
+            color: rgb(255, 138, 60);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

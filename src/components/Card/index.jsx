@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import "./Card.scss";
 
+import { FiTrash2, FiCheckCircle, FiXCircle } from "react-icons/fi";
+
 const Card = ({
   title,
   description,
@@ -17,9 +19,11 @@ const Card = ({
       <div className="card_main">
         <div className="card_description">{description}</div>
         <div className="card_footer">
-          <button onClick={onDelete}>delete</button>
+          <button onClick={onDelete}>
+            <FiTrash2 />
+          </button>
           <button onClick={onComplete}>
-            {completed ? "un-complete" : "complete"}
+            {completed ? <FiXCircle /> : <FiCheckCircle />}
           </button>
         </div>
       </div>
