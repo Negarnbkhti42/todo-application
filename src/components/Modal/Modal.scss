@@ -1,0 +1,47 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.363);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ease-in-out 0.3s;
+
+    &[hidden] {
+        display: none;
+    }
+
+    &_container {
+        background: #fff;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.486);
+
+        & > * {
+            padding: 10px 15px;
+        }
+    }
+
+    & header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        & button {
+            margin-right: 10px;
+            border: none;
+            font-size: 1.2rem;
+        }
+    }
+
+    &_main {
+        overflow: auto;
+    }
+}
