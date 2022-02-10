@@ -1,38 +1,11 @@
 import Card from "../Card";
 import propTypes from "prop-types";
 import "./CardList.scss";
-import { useList } from "../ListProvider";
-import { useReducer } from "react";
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "addItem":
-      return [...state, action.payload];
-
-    case "removeItem":
-      return state.filter((item) => item.id !== action.payload);
-
-    case "toggleItem":
-      return state.map((item) =>
-        item.id === action.payload
-          ? { ...item, completed: !item.completed }
-          : item
-      );
-
-    case "updateItem":
-      return state.map((item) =>
-        item.id === action.payload.id ? { ...item, ...action.payload } : item
-      );
-
-    default:
-      return state;
-  }
-};
+import { useList, useListActions } from "../ListProvider";
 
 const CardList = ({ className }) => {
-  // const list = useList();
-  // const { removeFromList, toggleItem } = useListActions();
-  const [todoList, dispatch] = useReducer(reducer, useList());
+  const todoList = useList();
+  const dispatch = useListActions();
 
   return (
     <div className={`list-container ${className}`}>
