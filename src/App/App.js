@@ -2,25 +2,27 @@ import CardList from '../components/CardList';
 import logo from './undraw_to_do_re_jaef.svg';
 import './App.scss';
 import Navbar from '../components/Navbar';
-import { useList, useListActions } from '../components/ListProvider';
+import { useList, useListActions } from '../components/providers/ListProvider';
 import Modal from '../components/Modal';
 import TodoForm from '../components/TodoForm';
 import { useState } from 'react';
+import { useForm } from '../components/providers/FormProvider';
 
 function App() {
   const list = useList();
+  const form = useForm();
   const dispatch = useListActions();
   const [isOpen, setIsOpen] = useState(true);
 
-  const addNewTodo = (event, title, description) => {
+  const addNewTodo = (event) => {
     event.preventDefault();
     setIsOpen(false);
     dispatch({
       type: 'addItem',
       payload: {
         id: list.length,
-        title,
-        description,
+        title: form.title,
+        description: form.description,
         completed: false
       }
     });

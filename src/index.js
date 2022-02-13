@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App/App.js';
 import reportWebVitals from './reportWebVitals';
-import ListProvider from './components/ListProvider';
+import ListProvider from './components/providers/ListProvider';
+import FormProvider from './components/providers/FormProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <ListProvider>
-      <App />
+      <FormProvider>
+        <App />
+      </FormProvider>
     </ListProvider>
   </React.StrictMode>,
   document.getElementById('root')

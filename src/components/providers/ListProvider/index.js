@@ -1,5 +1,5 @@
-import { createContext, useContext, useReducer, useState } from "react";
-import { list } from "../work_list";
+import { createContext, useContext, useReducer } from "react";
+import { list } from "../../work_list";
 
 const ListContext = createContext();
 const ListContextDispatcher = createContext();

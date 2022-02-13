@@ -1,7 +1,7 @@
 import Card from "../Card";
 import propTypes from "prop-types";
 import "./CardList.scss";
-import { useList, useListActions } from "../ListProvider";
+import { useList, useListActions } from "../providers/ListProvider";
 
 const CardList = ({ className }) => {
   const todoList = useList();

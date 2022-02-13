@@ -1,37 +1,42 @@
-import { useState } from "react";
 import propTypes from "prop-types";
 
 import "./TodoForm.scss";
+import {
+  CHANGE_DESCRIPTION,
+  CHANGE_TITLE,
+  useForm,
+  useFormDispatcher,
+} from "../providers/FormProvider";
 
-const TodoForm = ({ title, description, onSubmit, onCancel }) => {
-  const [titleInput, setTitleInput] = useState(title);
-  const [descriptionInput, setDescriptionInput] = useState(description);
-
+const TodoForm = ({ onSubmit }) => {
+  const content = useForm();
+  const dispatch = useFormDispatcher();
   return (
-    <form
-      onSubmit={(e) => onSubmit(e, titleInput, descriptionInput)}
-      className="todoform"
-    >
+    <form onSubmit={(e) => onSubmit(e)} className="todoform">
       <div className="todoform_title">
         <label htmlFor="title">Title:</label>
         <input
           id="title"
-          value={titleInput}
-          onChange={(e) => setTitleInput(e.target.value)}
+          value={content.title}
+          onChange={(e) =>
+            dispatch({ type: CHANGE_TITLE, payload: e.target.value })
+          }
         />
       </div>
       <div className="todoform_description">
         <label htmlFor="description">Description:</label>
         <textarea
           id="description"
-          value={descriptionInput}
-          onChange={(e) => setDescriptionInput(e.target.value)}
+          value={content.description}
+          onChange={(e) =>
+            dispatch({
+              type: CHANGE_DESCRIPTION,
+              payload: e.target.value,
+            })
+          }
         />
       </div>
       <div className="todoform_footer">
-        <button type="button" onCancel={onCancel}>
-          cancel
-        </button>
         <button type="submit">done</button>
       </div>
     </form>
@@ -43,6 +48,7 @@ export default TodoForm;
 TodoForm.propTypes = {
   title: propTypes.string,
   description: propTypes.string,
+  completed: propTypes.bool,
   onSubmit: propTypes.func,
   onCancel: propTypes.func,
 };
@@ -50,6 +56,7 @@ TodoForm.propTypes = {
 TodoForm.defaultProps = {
   title: "",
   description: "",
+  completed: false,
   onSubmit: null,
   onCancel: null,
 };
