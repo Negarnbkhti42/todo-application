@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Card.scss";
 
-import { FiTrash2, FiCheckCircle, FiXCircle } from "react-icons/fi";
+import { FiTrash2, FiCheckCircle, FiXCircle, FiEdit } from "react-icons/fi";
 
 const Card = ({
   title,
@@ -21,6 +21,9 @@ const Card = ({
         <div className="card_footer">
           <button onClick={onDelete}>
             <FiTrash2 />
+          </button>
+          <button>
+            <FiEdit />
           </button>
           <button onClick={onComplete}>
             {completed ? <FiXCircle /> : <FiCheckCircle />}

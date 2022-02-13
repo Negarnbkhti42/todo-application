@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .list {
     &-container {
         display: grid;
@@ -6,7 +8,7 @@
     }
 }
 
-@media screen and (min-width: 585px) {
+@media screen and (min-width: $mobile-breakpoint) {
     .list {
         &-container {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -14,7 +16,7 @@
     }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: $tablet-breakpoint) {
     .list {
         &-container {
             grid-template-columns: repeat(3, minmax(0, 1fr));
