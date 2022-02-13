@@ -1,18 +1,18 @@
 import { createContext, useContext, useReducer } from "react"
 
 export const FormContext = createContext();
-export const FormActionsContext = createContext();
+export const FormActionDispatcher = createContext();
 
 const initialForm = {
     title: '',
-    description: '',
-    completed: false
+    description: ''
 };
 
 export const CHANGE_TITLE = "changeTitle";
 export const CHANGE_DESCRIPTION = "changeDescription";
 export const TOGGLE_COMPLETED = 'toggleCompleted';
 export const CHANGE_COMPLETED = 'changeCompleted';
+export const CLEAR_FORM = 'clearForm';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -24,6 +24,8 @@ const reducer = (state, action) => {
             return { ...state, completed: !state.completed };
         case CHANGE_COMPLETED:
             return { ...state, completed: action.payload };
+        case CLEAR_FORM:
+            return initialForm;
         default:
             return state;
     }
@@ -34,9 +36,9 @@ const FormProvider = ({ children }) => {
 
     return (
         <FormContext.Provider value={form}>
-            <FormActionsContext.Provider value={dispatch}>
+            <FormActionDispatcher.Provider value={dispatch}>
                 {children}
-            </FormActionsContext.Provider>
+            </FormActionDispatcher.Provider>
         </FormContext.Provider>
     )
 }
@@ -44,4 +46,4 @@ const FormProvider = ({ children }) => {
 export default FormProvider;
 
 export const useForm = () => useContext(FormContext);
-export const useFormDispatcher = () => useContext(FormActionsContext);
+export const useFormActions = () => useContext(FormActionDispatcher);

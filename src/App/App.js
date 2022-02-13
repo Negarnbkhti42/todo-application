@@ -5,24 +5,28 @@ import Navbar from '../components/Navbar';
 import { useList, useListActions } from '../components/providers/ListProvider';
 import Modal from '../components/Modal';
 import TodoForm from '../components/TodoForm';
-import { useForm } from '../components/providers/FormProvider';
+import { CLEAR_FORM, useForm, useFormActions } from '../components/providers/FormProvider';
+import { CLOSE_MODAL, useModalActions } from '../components/providers/ModalProvider';
 
 function App() {
   const list = useList();
   const { title, description } = useForm();
-  const dispatch = useListActions();
+  const dispatchList = useListActions();
+  const dispatchForm = useFormActions();
+  const dispatchModal = useModalActions();
 
   const addNewTodo = (event) => {
     event.preventDefault();
-    dispatch({
+    dispatchList({
       type: 'addItem',
       payload: {
         id: list.length,
         title,
-        description,
-        completed: false
+        description
       }
     });
+    dispatchForm({ type: CLEAR_FORM });
+    dispatchModal({ type: CLOSE_MODAL });
   }
 
   return (

@@ -5,12 +5,12 @@ import {
   CHANGE_DESCRIPTION,
   CHANGE_TITLE,
   useForm,
-  useFormDispatcher,
+  useFormActions,
 } from "../providers/FormProvider";
 
 const TodoForm = ({ onSubmit }) => {
   const content = useForm();
-  const dispatch = useFormDispatcher();
+  const dispatch = useFormActions();
   return (
     <form onSubmit={(e) => onSubmit(e)} className="todoform">
       <div className="todoform_title">

@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const ModalContext = createContext();
-const ModalContextActions = createContext();
+const ModalActionDispatcher = createContext();
 
 export const SET_TITLE = 'setTitle';
 export const CLOSE_MODAL = 'closeModal';
@@ -29,9 +29,9 @@ const ModalProvider = ({ children }) => {
 
   return (
     <ModalContext.Provider value={modalState}>
-      <ModalContextActions.Provider value={dispatch}>
+      <ModalActionDispatcher.Provider value={dispatch}>
         {children}
-      </ModalContextActions.Provider>
+      </ModalActionDispatcher.Provider>
     </ModalContext.Provider>
   );
 };
@@ -39,4 +39,4 @@ const ModalProvider = ({ children }) => {
 export default ModalProvider;
 
 export const useModal = () => useContext(ModalContext);
-export const useModalActions = () => useContext(ModalContextActions);
+export const useModalActions = () => useContext(ModalActionDispatcher);
