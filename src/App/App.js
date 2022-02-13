@@ -5,24 +5,21 @@ import Navbar from '../components/Navbar';
 import { useList, useListActions } from '../components/providers/ListProvider';
 import Modal from '../components/Modal';
 import TodoForm from '../components/TodoForm';
-import { useState } from 'react';
 import { useForm } from '../components/providers/FormProvider';
 
 function App() {
   const list = useList();
-  const form = useForm();
+  const { title, description } = useForm();
   const dispatch = useListActions();
-  const [isOpen, setIsOpen] = useState(true);
 
   const addNewTodo = (event) => {
     event.preventDefault();
-    setIsOpen(false);
     dispatch({
       type: 'addItem',
       payload: {
         id: list.length,
-        title: form.title,
-        description: form.description,
+        title,
+        description,
         completed: false
       }
     });
@@ -37,7 +34,7 @@ function App() {
             <img src={logo} alt='to do list' />
           </div>}
       </main>
-      <Modal title='hi' open={isOpen} onClose={() => setIsOpen(false)}><TodoForm onSubmit={addNewTodo} /></Modal>
+      <Modal><TodoForm onSubmit={addNewTodo} /></Modal>
     </>
   );
 }

@@ -1,14 +1,22 @@
 import propTypes from "prop-types";
 import { FiArrowLeft } from "react-icons/fi";
+import {
+  CLOSE_MODAL,
+  useModal,
+  useModalActions,
+} from "../providers/ModalProvider";
 import "./Modal.scss";
 
-const Modal = ({ title, children, open, onClose }) => {
+const Modal = ({ children, onClose }) => {
+  const { show, title } = useModal();
+  const dispatch = useModalActions();
   const handleClose = () => {
+    dispatch({ type: CLOSE_MODAL });
     onClose && onClose();
   };
 
   return (
-    <div className="modal" hidden={!open}>
+    <div className="modal" hidden={!show}>
       <div className="modal_container">
         <header className="modal_header">
           <button onClick={handleClose} className="modal_button-return">
@@ -25,13 +33,10 @@ const Modal = ({ title, children, open, onClose }) => {
 export default Modal;
 
 Modal.propTypes = {
-  title: propTypes.string,
   children: propTypes.oneOfType([propTypes.string, propTypes.node]).isRequired,
-  open: propTypes.bool.isRequired,
   onClose: propTypes.func,
 };
 
 Modal.defaultProps = {
-  title: "",
   onClose: null,
 };
