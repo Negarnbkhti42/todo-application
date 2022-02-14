@@ -19,15 +19,25 @@ const Card = ({
       <div className="card_main">
         <div className="card_description">{description}</div>
         <div className="card_footer">
-          <button onClick={onDelete}>
-            <FiTrash2 />
-          </button>
-          <button>
-            <FiEdit />
-          </button>
-          <button onClick={onComplete}>
-            {completed ? <FiXCircle /> : <FiCheckCircle />}
-          </button>
+          <div>
+            <button
+              className="card_button card_button-delete"
+              onClick={onDelete}
+            >
+              <FiTrash2 />
+            </button>
+          </div>
+          <div>
+            <button className="card_button card_button-edit">
+              <FiEdit />
+            </button>
+            <button
+              className="card_button card_button-complete"
+              onClick={onComplete}
+            >
+              {completed ? <FiXCircle /> : <FiCheckCircle />}
+            </button>
+          </div>
         </div>
       </div>
     </div>

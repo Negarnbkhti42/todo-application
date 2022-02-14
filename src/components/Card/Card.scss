@@ -51,21 +51,34 @@
         flex: 1;
 
         display: flex;
-        justify-content: flex-end;
-        & > *:not(:last-child) {
+        justify-content: space-between;
+
+        & div {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &_button {
+        width: 2em;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 199, 162, 0.267);
+        color: rgb(255, 126, 41);
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:not(:last-child) {
             margin-right: 15px;
         }
 
-        & button {
-            width: 15%;
-            border: none;
-            border-radius: 5px;
-            background: rgba(252, 204, 172, 0.39);
-            color: rgb(255, 138, 60);
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        &-delete {
+            background: none;
+            border: 2px solid rgba(255, 138, 60, 0.651);
+            color: rgba(255, 138, 60, 0.651);
         }
     }
 }
