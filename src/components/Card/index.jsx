@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import "./Card.scss";
 
 import { FiTrash2, FiCheckCircle, FiXCircle, FiEdit } from "react-icons/fi";
+import propTypes from "prop-types";
 
 const Card = ({
   title,
@@ -10,6 +11,7 @@ const Card = ({
   completed,
   onDelete,
   onComplete,
+  onEdit,
 }) => {
   return (
     <div className={`card_container ${className}`}>
@@ -28,7 +30,7 @@ const Card = ({
             </button>
           </div>
           <div>
-            <button className="card_button card_button-edit">
+            <button className="card_button card_button-edit" onClick={onEdit}>
               <FiEdit />
             </button>
             <button
@@ -52,6 +54,7 @@ Card.propTypes = {
   completed: PropTypes.bool.isRequired,
   onDelete: PropTypes.func,
   onComplete: PropTypes.func,
+  onEdit: propTypes.func,
 };
 
 Card.defaultProps = {
@@ -60,4 +63,5 @@ Card.defaultProps = {
   completed: false,
   onDelete: null,
   onComplete: null,
+  onEdit: null,
 };

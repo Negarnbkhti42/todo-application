@@ -1,3 +1,4 @@
+import { SET_IS_ADDING, useFormActions } from "../providers/FormProvider";
 import {
   OPEN_MODAL,
   SET_TITLE,
@@ -7,8 +8,10 @@ import "./Navbar.scss";
 
 const Navbar = () => {
   const dispatch = useModalActions();
+  const formDispatch = useFormActions();
 
   const handleClick = () => {
+    formDispatch({ type: SET_IS_ADDING, payload: true });
     dispatch({ type: SET_TITLE, payload: "New todo" });
     dispatch({ type: OPEN_MODAL });
   };

@@ -5,14 +5,16 @@ export const FormActionDispatcher = createContext();
 
 const initialForm = {
     title: '',
-    description: ''
+    description: '',
+    isAdding: true,
+    id: null
 };
 
 export const CHANGE_TITLE = "changeTitle";
 export const CHANGE_DESCRIPTION = "changeDescription";
-export const TOGGLE_COMPLETED = 'toggleCompleted';
-export const CHANGE_COMPLETED = 'changeCompleted';
 export const CLEAR_FORM = 'clearForm';
+export const SET_IS_ADDING = 'setIsAdding';
+export const SET_ID = 'setId';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -20,12 +22,12 @@ const reducer = (state, action) => {
             return { ...state, title: action.payload };
         case CHANGE_DESCRIPTION:
             return { ...state, description: action.payload };
-        case TOGGLE_COMPLETED:
-            return { ...state, completed: !state.completed };
-        case CHANGE_COMPLETED:
-            return { ...state, completed: action.payload };
         case CLEAR_FORM:
             return initialForm;
+        case SET_IS_ADDING:
+            return { ...state, isAdding: action.payload };
+        case SET_ID:
+            return { ...state, id: action.payload };
         default:
             return state;
     }

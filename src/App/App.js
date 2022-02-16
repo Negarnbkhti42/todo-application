@@ -10,21 +10,34 @@ import { CLOSE_MODAL, useModalActions } from '../components/providers/ModalProvi
 
 function App() {
   const list = useList();
-  const { title, description } = useForm();
+  const { id, title, description, isAdding } = useForm();
   const dispatchList = useListActions();
   const dispatchForm = useFormActions();
   const dispatchModal = useModalActions();
 
   const addNewTodo = (event) => {
     event.preventDefault();
-    dispatchList({
-      type: 'addItem',
-      payload: {
-        id: list.length,
-        title,
-        description
-      }
-    });
+
+    if (isAdding) {
+      dispatchList({
+        type: 'addItem',
+        payload: {
+          id: list.length,
+          title,
+          description
+        }
+      });
+    } else {
+      dispatchList({
+        type: 'updateItem',
+        payload: {
+          id,
+          title,
+          description
+        }
+      })
+    }
+
     dispatchForm({ type: CLEAR_FORM });
     dispatchModal({ type: CLOSE_MODAL });
   }

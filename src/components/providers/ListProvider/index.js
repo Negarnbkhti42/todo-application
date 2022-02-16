@@ -20,6 +20,7 @@ const reducer = (state, action) => {
             );
 
         case "updateItem":
+            console.log("I'm updating")
             return state.map((item) =>
                 item.id === action.payload.id ? { ...item, ...action.payload } : item
             );
