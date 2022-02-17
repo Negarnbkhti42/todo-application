@@ -4,23 +4,27 @@ import { list } from "../../work_list";
 const ListContext = createContext();
 const ListContextDispatcher = createContext();
 
+export const ADD_ITEM = 'addItem';
+export const REMOVE_ITEM = 'removeItem';
+export const TOGGLE_ITEM = 'toggleItem';
+export const UPDATE_ITEM = 'updateItem';
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case "addItem":
+        case ADD_ITEM:
             return [...state, action.payload];
 
-        case "removeItem":
+        case REMOVE_ITEM:
             return state.filter((item) => item.id !== action.payload);
 
-        case "toggleItem":
+        case TOGGLE_ITEM:
             return state.map((item) =>
                 item.id === action.payload
                     ? { ...item, completed: !item.completed }
                     : item
             );
 
-        case "updateItem":
-            console.log("I'm updating")
+        case UPDATE_ITEM:
             return state.map((item) =>
                 item.id === action.payload.id ? { ...item, ...action.payload } : item
             );

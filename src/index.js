@@ -4,17 +4,11 @@ import './index.css';
 import App from './App/App.js';
 import reportWebVitals from './reportWebVitals';
 import ListProvider from './components/providers/ListProvider';
-import FormProvider from './components/providers/FormProvider';
-import ModalProvider from './components/providers/ModalProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <ListProvider>
-      <FormProvider>
-        <ModalProvider>
-          <App />
-        </ModalProvider>
-      </FormProvider>
+      <App />
     </ListProvider>
   </React.StrictMode>,
   document.getElementById('root')
