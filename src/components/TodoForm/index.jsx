@@ -8,7 +8,7 @@ import {
   useFormActions,
 } from "../providers/FormProvider";
 
-const TodoForm = ({ onSubmit }) => {
+function TodoForm({ onSubmit }) {
   const content = useForm();
   const dispatch = useFormActions();
   return (
@@ -41,7 +41,7 @@ const TodoForm = ({ onSubmit }) => {
       </div>
     </form>
   );
-};
+}
 
 export default TodoForm;
 

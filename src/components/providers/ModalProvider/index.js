@@ -24,7 +24,7 @@ const reducer = (state, action) => {
   }
 };
 
-const ModalProvider = ({ children }) => {
+function ModalProvider({ children }) {
   const [modalState, dispatch] = useReducer(reducer, initialState);
 
   return (

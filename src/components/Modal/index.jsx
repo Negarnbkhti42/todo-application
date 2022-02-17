@@ -7,7 +7,7 @@ import {
 } from "../providers/ModalProvider";
 import "./Modal.scss";
 
-const Modal = ({ children, onClose }) => {
+function Modal({ children, onClose }) {
   const { show, title } = useModal();
   const dispatch = useModalActions();
   const handleClose = () => {
@@ -28,7 +28,7 @@ const Modal = ({ children, onClose }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Modal;
 

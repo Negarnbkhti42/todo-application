@@ -4,7 +4,7 @@ import "./Card.scss";
 import { FiTrash2, FiCheckCircle, FiXCircle, FiEdit } from "react-icons/fi";
 import propTypes from "prop-types";
 
-const Card = ({
+function Card({
   title,
   description,
   className,
@@ -12,7 +12,7 @@ const Card = ({
   onDelete,
   onComplete,
   onEdit,
-}) => {
+}) {
   return (
     <div className={`card_container ${className}`}>
       <header className="card_header">
@@ -44,7 +44,7 @@ const Card = ({
       </div>
     </div>
   );
-};
+}
 
 export default Card;
 

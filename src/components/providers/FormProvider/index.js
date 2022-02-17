@@ -33,7 +33,7 @@ const reducer = (state, action) => {
     }
 };
 
-const FormProvider = ({ children }) => {
+function FormProvider({ children }) {
     const [form, dispatch] = useReducer(reducer, initialForm);
 
     return (

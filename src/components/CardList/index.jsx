@@ -15,7 +15,7 @@ import {
   useModalActions,
 } from "../providers/ModalProvider";
 
-const CardList = ({ className }) => {
+function CardList({ className }) {
   const todoList = useList();
   const dispatch = useListActions();
   const formDispatch = useFormActions();
@@ -54,7 +54,7 @@ const CardList = ({ className }) => {
       ))}
     </div>
   );
-};
+}
 
 export default CardList;
 

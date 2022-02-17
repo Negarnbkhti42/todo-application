@@ -6,7 +6,7 @@ import {
 } from "../providers/ModalProvider";
 import "./Navbar.scss";
 
-const Navbar = () => {
+function Navbar() {
   const dispatch = useModalActions();
   const formDispatch = useFormActions();
 
@@ -27,6 +27,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

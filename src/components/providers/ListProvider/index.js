@@ -30,7 +30,7 @@ const reducer = (state, action) => {
     }
 };
 
-const ListProvider = ({ children }) => {
+function ListProvider({ children }) {
     const [todoList, dispatch] = useReducer(reducer, list)
 
     return (
