@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import { list } from "../../work_list";
 
 const ListContext = createContext();
 const ListContextDispatcher = createContext();
@@ -35,7 +34,7 @@ const reducer = (state, action) => {
 };
 
 function ListProvider({ children }) {
-    const [todoList, dispatch] = useReducer(reducer, list)
+    const [todoList, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todoList')) || [])
 
     return (
         <ListContext.Provider value={todoList}>

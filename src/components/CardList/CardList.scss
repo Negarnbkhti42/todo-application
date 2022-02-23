@@ -5,22 +5,22 @@
         display: grid;
         grid-template-columns: 100%;
         gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
 
-// @media screen and (min-width: $mobile-breakpoint) {
-//     .list {
-//         &-container {
-//             grid-template-columns: repeat(2, minmax(270px, 1fr));
-//         }
-//     }
-// }
+@media screen and (min-width: $mobile-breakpoint) {
+    .list {
+        &-container {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+}
 
-// @media screen and (min-width: $tablet-breakpoint) {
-//     .list {
-//         &-container {
-//             grid-template-columns: repeat(3, minmax(0, 1fr));
-//         }
-//     }
-// }
+@media screen and (min-width: $tablet-breakpoint) {
+    .list {
+        &-container {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+}
