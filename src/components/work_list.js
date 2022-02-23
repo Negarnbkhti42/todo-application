@@ -16,5 +16,11 @@ export const list = [
         "title": "homeword",
         "description": "third phase of algorithm design project opsdf ;alrk ;oierjg lekrjg ejgkj;l ke;lkjg ;alekrgj ;lkrgjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj kdsssssssssssssssssssssssla ;;;;;;;;;;;;;;;;; fjiao;rj jffffffffffk;aaaaaa",
         "completed": true
+    },
+    {
+        "id": 3,
+        "title": "homework and trying to solve this out",
+        "description": "third phase of algorithm design project",
+        "completed": false
     }
 ];

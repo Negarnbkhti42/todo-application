@@ -21,6 +21,9 @@
             margin: 0;
             font-family: "Overpass", sans-serif;
             font-size: 1.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 
