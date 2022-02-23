@@ -13,7 +13,7 @@ function Navbar() {
     event.preventDefault();
     dispatchList({
       type: ADD_ITEM,
-      payload: { id: list.length, title, description, completed: false },
+      payload: { id: Date.now(), title, description, completed: false },
     });
     setModalIsOpen(false);
   };

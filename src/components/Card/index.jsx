@@ -14,16 +14,15 @@ function Card({
   onEdit,
 }) {
   return (
-    <div className={`card_container ${className}`}>
+    <div
+      className={`card_container ${
+        completed ? "card_container-completed" : ""
+      } ${className}`}
+    >
       <header className="card_header">
         <h3>{title}</h3>
-        <span
-          onClick={onComplete}
-          className={`card_checkbox ${
-            completed ? "card_checkbox-completed" : ""
-          }`}
-        >
-          {completed && <FiCheck />}
+        <span onClick={onComplete} className="card_checkbox">
+          <FiCheck />
         </span>
       </header>
       <div className="card_main">
