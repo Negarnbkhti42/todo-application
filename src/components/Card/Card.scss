@@ -6,10 +6,11 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(73, 73, 73, 0.555);
         padding: 5px 10px;
-        height: 150px;
+        height: 155px;
 
         display: flex;
         flex-direction: column;
+        gap: 5px;
     }
 
     &_header {
@@ -17,6 +18,11 @@
 
         padding: 5px 0;
         text-align: left;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         & h3 {
             margin: 0;
             font-family: "Overpass", sans-serif;
@@ -24,6 +30,17 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        & span {
+            display: inline-block;
+            box-sizing: border-box;
+            height: 100%;
+            width: 2em;
+            min-width: 2em;
+            border: 2px solid rgba(255, 138, 60, 0.651);
+            border-radius: 5px;
+            margin-left: 50px;
         }
     }
 
@@ -39,6 +56,7 @@
     &_description {
         flex: 2;
         min-height: 0;
+        padding-right: 2.3em;
         font-family: "Overpass", sans-serif;
         font-size: 1rem;
         line-height: 1.5rem;
@@ -66,8 +84,8 @@
         width: 2em;
         border: none;
         border-radius: 5px;
-        background: rgba(255, 199, 162, 0.267);
-        color: rgb(255, 126, 41);
+        background: #ffc7a244;
+        color: #c35257;
         font-size: 1.2rem;
         display: flex;
         align-items: center;
@@ -80,8 +98,8 @@
 
         &-delete {
             background: none;
-            border: 2px solid rgba(255, 138, 60, 0.651);
-            color: rgba(255, 138, 60, 0.651);
+            border: 2px solid #ff8789;
+            color: #ff8789;
         }
     }
 }

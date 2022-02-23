@@ -17,6 +17,7 @@ function Card({
     <div className={`card_container ${className}`}>
       <header className="card_header">
         <h3>{title}</h3>
+        <span></span>
       </header>
       <div className="card_main">
         <div className="card_description">{description}</div>
@@ -33,12 +34,12 @@ function Card({
             <button className="card_button card_button-edit" onClick={onEdit}>
               <FiEdit />
             </button>
-            <button
+            {/* <button
               className="card_button card_button-complete"
               onClick={onComplete}
             >
               {completed ? <FiXCircle /> : <FiCheckCircle />}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
