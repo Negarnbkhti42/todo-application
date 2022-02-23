@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Card.scss";
 
-import { FiTrash2, FiCheckCircle, FiXCircle, FiEdit } from "react-icons/fi";
+import { FiTrash2, FiCheck, FiEdit } from "react-icons/fi";
 import propTypes from "prop-types";
 
 function Card({
@@ -17,7 +17,14 @@ function Card({
     <div className={`card_container ${className}`}>
       <header className="card_header">
         <h3>{title}</h3>
-        <span></span>
+        <span
+          onClick={onComplete}
+          className={`card_checkbox ${
+            completed ? "card_checkbox-completed" : ""
+          }`}
+        >
+          {completed && <FiCheck />}
+        </span>
       </header>
       <div className="card_main">
         <div className="card_description">{description}</div>
@@ -34,12 +41,6 @@ function Card({
             <button className="card_button card_button-edit" onClick={onEdit}>
               <FiEdit />
             </button>
-            {/* <button
-              className="card_button card_button-complete"
-              onClick={onComplete}
-            >
-              {completed ? <FiXCircle /> : <FiCheckCircle />}
-            </button> */}
           </div>
         </div>
       </div>

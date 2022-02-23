@@ -31,16 +31,27 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
+    }
 
-        & span {
-            display: inline-block;
-            box-sizing: border-box;
-            height: 100%;
-            width: 2em;
-            min-width: 2em;
-            border: 2px solid rgba(255, 138, 60, 0.651);
-            border-radius: 5px;
-            margin-left: 50px;
+    &_checkbox {
+        display: inline-block;
+        box-sizing: border-box;
+        height: 1.4em;
+        width: 1.4em;
+        min-width: 1.4em;
+        border: 2px solid rgba(255, 142, 67, 0.87);
+        border-radius: 5px;
+        margin-left: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+
+        font-size: 1.5rem;
+
+        &-completed {
+            background-color: rgb(255, 142, 67);
         }
     }
 
