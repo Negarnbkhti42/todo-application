@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
+@import "../../styles/variables";
 
 .card {
     &_container {
@@ -15,7 +16,7 @@
         &-completed {
             & .card {
                 &_checkbox {
-                    background-color: rgb(255, 142, 67);
+                    background-color: #ff8e43;
 
                     & > * {
                         display: inline-block;
@@ -24,6 +25,7 @@
 
                 &_header {
                     & h3 {
+                        color: rgb(131, 131, 131);
                         &::after {
                             width: 100%;
                         }
@@ -45,22 +47,25 @@
         align-items: center;
         & h3 {
             margin: 0;
+            padding: 0 3px;
             font-family: "Overpass", sans-serif;
             font-size: 1.5rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             position: relative;
+            transition: all 0.15s ease-in-out;
 
             &::after {
                 content: "";
                 position: absolute;
-                height: 0;
+                height: 0.1em;
+                background-color: rgb(131, 131, 131);
+                border-radius: 5px;
                 width: 0;
-                border-top: 3px solid #000;
                 top: 45%;
                 left: 0;
-                transition: 0.15s linear;
+                transition: all 0.15s ease-in-out;
             }
         }
     }
@@ -71,7 +76,7 @@
         height: 1.4em;
         width: 1.4em;
         min-width: 1.4em;
-        border: 2px solid rgba(255, 142, 67, 0.87);
+        border: 2px solid #ff8e43de;
         border-radius: 5px;
         margin-left: 50px;
         display: flex;
@@ -125,15 +130,9 @@
 
     &_button {
         width: 2em;
-        border: none;
-        border-radius: 5px;
-        background: #ffc7a244;
-        color: #c35257;
+        @include button_style;
+        padding: 0;
         font-size: 1.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
 
         &:not(:last-child) {
             margin-right: 15px;
@@ -141,8 +140,8 @@
 
         &-delete {
             background: none;
-            border: 2px solid #ff8789;
-            color: #ff8789;
+            border: 2px solid $warning-red;
+            color: $warning-red;
         }
     }
 }

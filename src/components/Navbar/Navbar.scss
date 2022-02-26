@@ -18,5 +18,26 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        max-height: 100%;
+    }
+
+    &_leftHand {
+        height: 100%;
+        width: fit-content;
+        & img {
+            object-fit: scale-down;
+            width: 40%;
+        }
+    }
+
+    &_rightHand {
+        height: 100%;
+    }
+
+    &_button {
+        @include button_style;
+        font-weight: 600;
+        font-size: 1.1rem;
+        padding: 5px 10px;
     }
 }

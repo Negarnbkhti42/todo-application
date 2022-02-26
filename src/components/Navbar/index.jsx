@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ADD_ITEM, useList, useListActions } from "../providers/ListProvider";
+import { ADD_ITEM, useListActions } from "../providers/ListProvider";
 import Modal from "../Modal";
 import TodoForm from "../TodoForm";
+import logo from "./coollogo_com-296642901.png";
 import "./Navbar.scss";
 
 function Navbar() {
-  const list = useList();
   const dispatchList = useListActions();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -21,9 +21,15 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar_container">
-        <div className="navbar-lefHand">taskin</div>
-        <div className="navbar-rightHand">
-          <button type="button" onClick={() => setModalIsOpen(true)}>
+        <div className="navbar_leftHand">
+          <img src={logo} alt="Taskin logo" />
+        </div>
+        <div className="navbar_rightHand">
+          <button
+            className="navbar_button"
+            type="button"
+            onClick={() => setModalIsOpen(true)}
+          >
             add todo +
           </button>
           {modalIsOpen && (

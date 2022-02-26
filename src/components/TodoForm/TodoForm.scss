@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap");
+@import "../../styles/variables";
 
 .todoform {
     display: flex;
@@ -44,6 +45,10 @@
 
         & > *:not(:last-child) {
             margin-right: 5px;
+        }
+
+        & button {
+            @include button_style;
         }
     }
 }

@@ -1,3 +1,21 @@
 $mobile-breakpoint: 426px;
 $tablet-breakpoint: 769px;
-$navbar-height: 50px;
+$navbar-height: 60px;
+
+$warning-red: #ff8789;
+$button-text: #c35257;
+$button-background: #ffc7a244;
+
+@mixin button_style {
+    border: none;
+    border-radius: 5px;
+    background: $button-background;
+    color: $button-text;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+}

@@ -1,11 +1,16 @@
 import propTypes from "prop-types";
 
 import "./TodoForm.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function TodoForm({ title, description, onSubmit }) {
   const [titleInput, setTitleInput] = useState(title);
   const [descriptionInput, setDescriptionInput] = useState(description);
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   return (
     <form
@@ -18,6 +23,8 @@ function TodoForm({ title, description, onSubmit }) {
           id="title"
           value={titleInput}
           onChange={(e) => setTitleInput(e.target.value)}
+          ref={ref}
+          required
         />
       </div>
       <div className="todoform_description">
