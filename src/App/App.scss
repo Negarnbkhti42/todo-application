@@ -1,4 +1,11 @@
 @import "../styles/variables";
+
+:root {
+  &:has(.main-dark) {
+    background-color: $background-dark;
+  }
+}
+
 .main {
   margin: 15px;
 }

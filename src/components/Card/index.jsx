@@ -12,12 +12,14 @@ function Card({
   onDelete,
   onComplete,
   onEdit,
+  isDark,
 }) {
   return (
     <div
       className={`card_container ${
         completed ? "card_container-completed" : ""
       } ${className}`}
+      data-theme={isDark ? "dark" : "light"}
     >
       <header className="card_header">
         <h3>{title}</h3>
@@ -30,14 +32,21 @@ function Card({
         <div className="card_footer">
           <div>
             <button
-              className="card_button card_button-delete"
+              className={`card_button ${
+                isDark ? "card_button-dark" : ""
+              } card_button-delete`}
               onClick={onDelete}
             >
               <FiTrash2 />
             </button>
           </div>
           <div>
-            <button className="card_button card_button-edit" onClick={onEdit}>
+            <button
+              className={`card_button ${
+                isDark ? "card_button-dark" : ""
+              } card_button-edit`}
+              onClick={onEdit}
+            >
               <FiEdit />
             </button>
           </div>
@@ -56,6 +65,7 @@ Card.propTypes = {
   onDelete: PropTypes.func,
   onComplete: PropTypes.func,
   onEdit: propTypes.func,
+  isDark: propTypes.bool,
 };
 
 Card.defaultProps = {
@@ -65,4 +75,5 @@ Card.defaultProps = {
   onDelete: null,
   onComplete: null,
   onEdit: null,
+  isDark: false,
 };

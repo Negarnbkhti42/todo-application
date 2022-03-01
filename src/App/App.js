@@ -3,20 +3,17 @@ import logo from './undraw_to_do_re_jaef.svg';
 import './App.scss';
 import Navbar from '../components/Navbar';
 import { useList } from '../components/providers/ListProvider';
-import { useEffect } from 'react';
+import { useTheme } from '../components/providers/ThemeProvider';
 
 function App() {
   const list = useList();
-
-  useEffect(() => {
-    localStorage.setItem('todoList', JSON.stringify(list));
-  }, [list]);
+  const { isLight } = useTheme();
 
 
   return (
     <>
       <Navbar />
-      <main className='main'>
+      <main className={`main ${isLight ? "" : "main-dark"}`}>
         {list.length ? <CardList /> :
           <div className='emptyList_logo'>
             <img src={logo} alt='to do list' />

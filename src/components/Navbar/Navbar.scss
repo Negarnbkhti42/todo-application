@@ -13,6 +13,10 @@
     padding: 10px 15px;
     box-shadow: 0 5px 5px rgba(90, 90, 90, 0.445);
 
+    &-dark {
+        background-color: $background-dark-secondary;
+    }
+
     &_container {
         display: flex;
         flex-direction: row;
@@ -32,6 +36,14 @@
 
     &_rightHand {
         height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        & > *:not(:first-child) {
+            margin-left: 10px;
+        }
     }
 
     &_button {

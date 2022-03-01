@@ -7,6 +7,7 @@ import {
   useListActions,
 } from "../providers/ListProvider";
 import { useState } from "react";
+import { useTheme } from "../providers/ThemeProvider";
 import Modal from "../Modal";
 import TodoForm from "../TodoForm";
 
@@ -14,6 +15,8 @@ function CardList({ className }) {
   const todoList = useList();
   const dispatch = useListActions();
   const [editingItem, setEditingItem] = useState();
+
+  const { isLight } = useTheme();
 
   const handleSubmit = (e, title, description) => {
     e.preventDefault();
@@ -41,6 +44,7 @@ function CardList({ className }) {
           onDelete={() => dispatch({ type: "removeItem", payload: item.id })}
           onComplete={() => dispatch({ type: "toggleItem", payload: item.id })}
           onEdit={() => handleEdit(item)}
+          isDark={!isLight}
         />
       ))}
       {editingItem && (

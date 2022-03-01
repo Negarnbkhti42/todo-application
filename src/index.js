@@ -4,12 +4,15 @@ import './index.css';
 import App from './App/App.js';
 import reportWebVitals from './reportWebVitals';
 import ListProvider from './components/providers/ListProvider';
+import ThemeProvider from './components/providers/ThemeProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ListProvider>
-      <App />
-    </ListProvider>
+    <ThemeProvider>
+      <ListProvider>
+        <App />
+      </ListProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

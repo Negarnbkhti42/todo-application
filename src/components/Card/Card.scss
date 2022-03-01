@@ -8,6 +8,7 @@
         box-shadow: 0 0 10px rgba(73, 73, 73, 0.555);
         padding: 5px 10px;
         height: 155px;
+        background-color: #fff;
 
         display: flex;
         flex-direction: column;
@@ -29,6 +30,18 @@
                         &::after {
                             width: 100%;
                         }
+                    }
+                }
+            }
+        }
+
+        &[data-theme="dark"] {
+            background-color: $background-dark-secondary;
+
+            &.card {
+                &_header {
+                    & h3 {
+                        color: #fff;
                     }
                 }
             }

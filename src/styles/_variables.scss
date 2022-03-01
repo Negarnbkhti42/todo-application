@@ -6,10 +6,15 @@ $warning-red: #ff8789;
 $button-text: #c35257;
 $button-background: #ffc7a244;
 
+$button-background-dark: #ffd3b5;
+
+$background-dark: #2c3139;
+$background-dark-secondary: #222535;
+
 @mixin button_style {
     border: none;
     border-radius: 5px;
-    background: $button-background;
+    background-color: $button-background;
     color: $button-text;
     display: flex;
     align-items: center;
@@ -18,4 +23,8 @@ $button-background: #ffc7a244;
     font-weight: 600;
     font-size: 1.1rem;
     padding: 5px 10px;
+
+    &-dark {
+        background-color: $button-background-dark;
+    }
 }
