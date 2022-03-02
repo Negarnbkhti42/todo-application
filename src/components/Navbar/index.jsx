@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ADD_ITEM, useListActions } from "../providers/ListProvider";
+import { FiMoon, FiSun } from "react-icons/fi";
 import Modal from "../Modal";
 import TodoForm from "../TodoForm";
 import logo from "./coollogo_com-296642901.png";
@@ -42,12 +43,14 @@ function Navbar() {
             add todo +
           </button>
           <button
-            className={`navbar_button ${isLight ? "" : "navbar_button-dark"}`}
+            className={`navbar_button ${
+              isLight ? "" : "navbar_button-dark"
+            } navbar_button-theme`}
             type="button"
             on
             onClick={() => dispatchTheme({ type: TOGGLE_THEME })}
           >
-            theme
+            {isLight ? <FiMoon /> : <FiSun />}
           </button>
         </div>
       </div>

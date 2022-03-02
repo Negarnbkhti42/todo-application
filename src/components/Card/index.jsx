@@ -16,12 +16,12 @@ function Card({
 }) {
   return (
     <div
-      className={`card_container ${
-        completed ? "card_container-completed" : ""
-      } ${className}`}
+      className={`card_container ${className}`}
       data-theme={isDark ? "dark" : "light"}
     >
-      <header className="card_header">
+      <header
+        className={`card_header ${completed ? "card_header-completed" : ""}`}
+      >
         <h3>{title}</h3>
         <span onClick={onComplete} className="card_checkbox">
           <FiCheck />

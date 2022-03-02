@@ -5,8 +5,8 @@
     &_container {
         // border: 2px solid rgb(199, 199, 199);
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(73, 73, 73, 0.555);
-        padding: 5px 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.555);
+        padding: 10px;
         height: 155px;
         background-color: #fff;
 
@@ -14,35 +14,27 @@
         flex-direction: column;
         gap: 5px;
 
-        &-completed {
-            & .card {
-                &_checkbox {
-                    background-color: #ff8e43;
-
-                    & > * {
-                        display: inline-block;
-                    }
-                }
-
-                &_header {
-                    & h3 {
-                        color: rgb(131, 131, 131);
-                        &::after {
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-        }
-
         &[data-theme="dark"] {
             background-color: $background-dark-secondary;
 
-            &.card {
+            & .card {
                 &_header {
                     & h3 {
                         color: #fff;
                     }
+
+                    &-completed {
+                        & h3 {
+                            color: rgb(180, 180, 180);
+                            &::after {
+                                background-color: rgb(180, 180, 180);
+                            }
+                        }
+                    }
+                }
+
+                &_description {
+                    color: #fff;
                 }
             }
         }
@@ -50,8 +42,6 @@
 
     &_header {
         flex: 0;
-
-        padding: 5px 0;
         text-align: left;
 
         display: flex;
@@ -79,6 +69,25 @@
                 top: 45%;
                 left: 0;
                 transition: all 0.15s ease-in-out;
+            }
+        }
+
+        &-completed {
+            & h3 {
+                color: rgb(131, 131, 131);
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            & .card {
+                &_checkbox {
+                    background-color: #ff8e43;
+
+                    & > * {
+                        display: inline-block;
+                    }
+                }
             }
         }
     }
