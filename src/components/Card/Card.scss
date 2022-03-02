@@ -20,14 +20,14 @@
             & .card {
                 &_header {
                     & h3 {
-                        color: #fff;
+                        color: rgb(218, 218, 218);
                     }
 
                     &-completed {
                         & h3 {
-                            color: rgb(180, 180, 180);
+                            color: rgb(131, 131, 131);
                             &::after {
-                                background-color: rgb(180, 180, 180);
+                                background-color: rgb(131, 131, 131);
                             }
                         }
                     }
@@ -57,7 +57,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             position: relative;
-            transition: all 0.15s ease-in-out;
+            transition: all 0.5s cubic-bezier(0, 0, 0.085, 0.47);
 
             &::after {
                 content: "";
@@ -68,7 +68,7 @@
                 width: 0;
                 top: 45%;
                 left: 0;
-                transition: all 0.15s ease-in-out;
+                transition: all 0.5s cubic-bezier(0, 0, 0.085, 0.47);
             }
         }
 

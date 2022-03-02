@@ -28,7 +28,13 @@ function Card({
         </span>
       </header>
       <div className="card_main">
-        <div className="card_description">{description}</div>
+        <div className="card_description">
+          {description.split("\n").map((p, i) => (
+            <span key={i}>
+              {p} <br />
+            </span>
+          ))}
+        </div>
         <div className="card_footer">
           <div>
             <button

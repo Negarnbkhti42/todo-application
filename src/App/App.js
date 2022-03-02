@@ -4,10 +4,15 @@ import './App.scss';
 import Navbar from '../components/Navbar';
 import { useList } from '../components/providers/ListProvider';
 import { useTheme } from '../components/providers/ThemeProvider';
+import { useEffect } from 'react';
 
 function App() {
   const list = useList();
   const { isLight } = useTheme();
+
+  useEffect(() => {
+    document.body.style.background = isLight ? "none" : "#1a1a1a";
+  }, [isLight]);
 
 
   return (
@@ -16,7 +21,7 @@ function App() {
       <main className={`main ${isLight ? "" : "main-dark"}`}>
         {list.length ? <CardList /> :
           <div className='emptyList_logo'>
-            <img src={logo} alt='to do list' />
+            <img src={logo} alt='no todo' />
           </div>}
       </main>
     </>

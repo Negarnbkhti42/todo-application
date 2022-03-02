@@ -1,9 +1,7 @@
 @import "../styles/variables";
 
-:root {
-  &:has(.main-dark) {
-    background-color: $background-dark;
-  }
+body {
+  background-color: $background-dark;
 }
 
 .main {
@@ -14,7 +12,7 @@
   align-items: center;
   justify-content: center;
 
-  height: calc(100vh - $navbar-height);
+  height: calc(100vh - $navbar-height - 30px); // full height - navbar height - container margin
   & img {
     width: 60vmin;
     height: auto;

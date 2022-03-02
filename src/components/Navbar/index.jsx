@@ -47,7 +47,6 @@ function Navbar() {
               isLight ? "" : "navbar_button-dark"
             } navbar_button-theme`}
             type="button"
-            on
             onClick={() => dispatchTheme({ type: TOGGLE_THEME })}
           >
             {isLight ? <FiMoon /> : <FiSun />}
