@@ -40,7 +40,7 @@ function Navbar() {
             type="button"
             onClick={() => setModalIsOpen(true)}
           >
-            add todo +
+            add task +
           </button>
           <button
             className={`navbar_button ${

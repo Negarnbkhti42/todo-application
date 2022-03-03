@@ -11,7 +11,9 @@ function App() {
   const { isLight } = useTheme();
 
   useEffect(() => {
-    document.body.style.background = isLight ? "none" : "#1a1a1a";
+    isLight ?
+      document.documentElement.classList.remove('dark') :
+      document.documentElement.classList.add('dark');
   }, [isLight]);
 
 

@@ -37,6 +37,7 @@
         justify-content: flex-start;
 
         & button {
+            @include button_style;
             margin-right: 10px;
             border: none;
             font-size: 1.2rem;
@@ -45,6 +46,16 @@
 
     &_main {
         overflow: auto;
+    }
+
+    &-dark {
+        & .modal_container {
+            background-color: $background-dark-secondary;
+        }
+
+        & button {
+            background-color: $button-background-dark;
+        }
     }
 }
 
