@@ -2,11 +2,14 @@ import propTypes from "prop-types";
 
 import "./TodoForm.scss";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../providers/ThemeProvider";
 
 function TodoForm({ title, description, onSubmit }) {
   const [titleInput, setTitleInput] = useState(title);
   const [descriptionInput, setDescriptionInput] = useState(description);
   const ref = useRef();
+
+  const { isLight } = useTheme();
 
   useEffect(() => {
     ref.current.focus();
@@ -15,11 +18,12 @@ function TodoForm({ title, description, onSubmit }) {
   return (
     <form
       onSubmit={(e) => onSubmit(e, titleInput, descriptionInput)}
-      className="todoform"
+      className={`todoform ${isLight || "todoform-dark"}`}
     >
       <div className="todoform_title">
         <label htmlFor="title">Title:</label>
         <input
+          className="todoform_input"
           id="title"
           value={titleInput}
           onChange={(e) => setTitleInput(e.target.value)}
@@ -30,13 +34,19 @@ function TodoForm({ title, description, onSubmit }) {
       <div className="todoform_description">
         <label htmlFor="description">Description:</label>
         <textarea
+          className="todoform_text"
           id="description"
           value={descriptionInput}
           onChange={(e) => setDescriptionInput(e.target.value)}
         />
       </div>
       <div className="todoform_footer">
-        <button type="submit">done</button>
+        <button
+          className={`todoform_button ${isLight || "todoform_button-dark"}`}
+          type="submit"
+        >
+          done
+        </button>
       </div>
     </form>
   );

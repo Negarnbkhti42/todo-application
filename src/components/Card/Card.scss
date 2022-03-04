@@ -82,7 +82,7 @@
 
             & .card {
                 &_checkbox {
-                    background-color: #ff8e43;
+                    background-color: $primary;
 
                     & > * {
                         display: inline-block;

@@ -22,21 +22,28 @@
             font-family: "Overpass", sans-serif;
             font-size: 1.5em;
         }
+    }
 
-        & input,
-        & textArea {
-            width: 100%;
-            padding: 7px 5px;
-            box-sizing: border-box;
-            resize: none;
-            font-size: 1em;
-            font-family: "Roboto Serif", sans-serif;
-        }
+    &_input,
+    &_text {
+        width: 100%;
+        padding: 7px 5px;
+        box-sizing: border-box;
+        resize: none;
+        font-size: 1em;
+        font-family: "Roboto Serif", sans-serif;
+        outline: none;
+        border: 2px solid rgba(105, 105, 105, 0.596);
+        border-radius: 5px;
 
-        & textArea {
-            overflow: auto;
-            height: 8.4em;
+        &:focus {
+            border: 2px solid $primary;
         }
+    }
+
+    &_text {
+        overflow: auto;
+        height: 8.4em;
     }
 
     &_footer {
@@ -46,9 +53,19 @@
         & > *:not(:last-child) {
             margin-right: 5px;
         }
+    }
 
-        & button {
-            @include button_style;
+    &_button {
+        @include button_style;
+    }
+
+    &-dark {
+        & .todoform {
+            &_input,
+            &_text {
+                background-color: $background-dark;
+                color: #ccc;
+            }
         }
     }
 }
