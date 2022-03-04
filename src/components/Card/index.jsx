@@ -9,6 +9,8 @@ function Card({
   description,
   className,
   completed,
+  createDate,
+  editDate,
   onDelete,
   onComplete,
   onEdit,
@@ -35,27 +37,31 @@ function Card({
             </span>
           ))}
         </div>
-        <div className="card_footer">
-          <div>
-            <button
-              className={`card_button ${
-                isDark ? "card_button-dark" : ""
-              } card_button-delete`}
-              onClick={onDelete}
-            >
-              <FiTrash2 />
-            </button>
-          </div>
-          <div>
-            <button
-              className={`card_button ${
-                isDark ? "card_button-dark" : ""
-              } card_button-edit`}
-              onClick={onEdit}
-            >
-              <FiEdit />
-            </button>
-          </div>
+        <div className="card_date">
+          created at: {createDate} <br />
+          last edited: {editDate}
+        </div>
+      </div>
+      <div className="card_footer">
+        <div>
+          <button
+            className={`card_button ${
+              isDark ? "card_button-dark" : ""
+            } card_button-delete`}
+            onClick={onDelete}
+          >
+            <FiTrash2 />
+          </button>
+        </div>
+        <div>
+          <button
+            className={`card_button ${
+              isDark ? "card_button-dark" : ""
+            } card_button-edit`}
+            onClick={onEdit}
+          >
+            <FiEdit />
+          </button>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import {
   useTheme,
   useThemeActions,
 } from "../providers/ThemeProvider";
+import { getCurrentDate } from "../../utils/getDate";
 
 function Navbar() {
   const dispatchList = useListActions();
@@ -21,9 +22,17 @@ function Navbar() {
 
   const addNewTodo = (event, title, description) => {
     event.preventDefault();
+
     dispatchList({
       type: ADD_ITEM,
-      payload: { id: Date.now(), title, description, completed: false },
+      payload: {
+        id: Date.now(),
+        title,
+        description,
+        completed: false,
+        createDate: getCurrentDate(),
+        editDate: "-",
+      },
     });
     setModalIsOpen(false);
   };

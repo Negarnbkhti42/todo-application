@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useTheme } from "../providers/ThemeProvider";
 import Modal from "../Modal";
 import TodoForm from "../TodoForm";
+import { getCurrentDate } from "../../utils/getDate";
 
 function CardList({ className }) {
   const todoList = useList();
@@ -23,7 +24,12 @@ function CardList({ className }) {
 
     dispatch({
       type: UPDATE_ITEM,
-      payload: { id: editingItem.id, title, description },
+      payload: {
+        id: editingItem.id,
+        title,
+        description,
+        editDate: getCurrentDate(),
+      },
     });
 
     setEditingItem(null);
